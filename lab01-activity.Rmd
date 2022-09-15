@@ -5,6 +5,7 @@ date: "Last updated: `r Sys.Date()`"
 output:
   html_document:
     df_print: paged
+---git
 ---
 
 ```{r setup, include=FALSE}
@@ -30,7 +31,7 @@ The first run of the code chunk above (or the first time you knit this document)
 Each RStudio user is given a home directory on the course server under `/localhome/`. For example, the instructor's is `/localhome/sasneddo/`. Using the Terminal window, you can find your current working directory with the bash `pwd` command (print working directory). The equivalent command in R itself is `getwd()`. The table below provides a few pairs of commands for navigating the file system in bash and R, respectively.
 
 |    Bash     |         R         | Effect                                                     |
-|:-----------:|:-----------------:|------------------------------------------------------------|
+|:----------------:|:----------------:|-------------------------------------|
 |    `pwd`    |     `getwd()`     | Print/return the current working directory                 |
 |  `cd DIR`   |  `setwd("DIR")`   | Change to directory specified by DIR                       |
 |  `ls DIR`   |   `dir("DIR")`    | Get a list of all the files in DIR                         |
@@ -55,7 +56,7 @@ pwd
 ## Other extremely useful bash commands
 
 | Bash Command        | Effect                                                                         |
-|---------------------|--------------------------------------------------------------------------------|
+|-------------------|-----------------------------------------------------|
 | `cat FILE1 FILEN`   | print contents of one or more files to STDOUT (i.e. to the terminal)           |
 | `head FILE`         | print the first few (10 by default) lines of a file to STDOUT                  |
 | `tail FILE`         | print the last few (10 by default) lines of a file to STDOUT                   |
@@ -277,7 +278,8 @@ The human reference genome in fasta format can be found in the lab data director
 Think about how you might make this code output to a file instead of just to the terminal. How might this be useful?
 
 ```{bash, engine.opts='-l'}
-echo $(samtools faidx ~/files/hg38.fa chr14:65102304-65102339 | grep -v \>) > ourfile.txt
+seq=$(samtools faidx ~/files/hg38.fa chr14:65102304-65102339 | grep -v \>)
+echo $seq
 ```
 
 ## Lab Completion Checklist
@@ -285,9 +287,9 @@ echo $(samtools faidx ~/files/hg38.fa chr14:65102304-65102339 | grep -v \>) > ou
 **Task** At the end of every lab, replace TODO with DONE to the left of each task to indicate you've completed it
 
 | status | task                                                                                       |
-|--------|--------------------------------------------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | DONE   | This file has been knit                                                                    |
-| TODO   | My .bashrc file exists                                                                     |
-| TODO   | Miniconda is installed                                                                     |
-| TODO   | I was able to install both Bioconda and samtools using conda                               |
-| TODO   | The last few code chunks that run Python code run without errors when I knit this document |
+| DONE   | My .bashrc file exists                                                                     |
+| DONE   | Miniconda is installed                                                                     |
+| DONE   | I was able to install both Bioconda and samtools using conda                               |
+| DONE   | The last few code chunks that run Python code run without errors when I knit this document |
